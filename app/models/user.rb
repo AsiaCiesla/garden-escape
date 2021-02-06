@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :gardens, dependent: :destroy, inverse_of: 'owner'
+  has_many :bookings, dependent: :destroy, inverse_of: 'guest'
 end
