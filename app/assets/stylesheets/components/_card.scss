@@ -1,0 +1,46 @@
+.card-garden {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 300px;
+}
+
+.card-garden > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-garden h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-garden h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-garden p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-garden .card-garden-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-garden-infos .card-garden-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
