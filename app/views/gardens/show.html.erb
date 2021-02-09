@@ -1,0 +1,16 @@
+<div class="container pt-4">
+  <div class="row justify-content-center">
+    <div class="col">
+
+      <h2><%= @garden.title %></h2>
+      <p><%= @garden.description %></p>
+      <p><%= @garden.price_per_hour %></p>
+      <p><%= @garden.address %></p>
+
+      <%= link_to "back", gardens_path %> |
+      <%= link_to "edit", edit_garden_path(@garden) %> |
+      <%= link_to "delete", garden_path(@garden), method: :delete %>
+
+    </div>
+  </div>
+</div>
