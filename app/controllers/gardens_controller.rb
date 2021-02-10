@@ -5,10 +5,13 @@ class GardensController < ApplicationController
   def index
     @gardens = Garden.all
   end
+
   def show; end
+
   def new
     @garden = Garden.new
   end
+
   def create
     @garden = Garden.new(garden_params)
     @garden.owner = current_user
@@ -18,7 +21,9 @@ class GardensController < ApplicationController
       render :new
     end
   end
+
   def edit; end
+
   def update
     if @garden.update(garden_params)
       redirect_to garden_path(@garden)
@@ -26,6 +31,7 @@ class GardensController < ApplicationController
       render :edit
     end
   end
+
   def destroy
     @garden.destroy
     redirect_to garden_path
