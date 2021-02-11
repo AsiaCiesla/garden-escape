@@ -1,15 +1,17 @@
 <div class="container">
-  <h1>BOOKED!</h1>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h1>BOOKED!</h1>
 
-  <h3>Enjoy your stay in</h3>
+      <h3>Enjoy your stay in</h3>
 
-  <p> <%= @booking.garden.title %></p>
+      <p> <%= @booking.garden.title %></p>
 
-  <p><%= @booking.start_date_time %> til <%= @booking.end_date_time %></p>
+      <p><%= @booking.start_date_time %> til <%= @booking.end_date_time %></p>
 
-  <p> <%= @booking.garden.address %></p>
+      <p> <%= @booking.garden.address %></p>
 
-  <%= link_to 'continue exploring', gardens_path %>
+      <%= link_to 'continue exploring', gardens_path %>
+    </div>
+  </div>
 </div>
-
-
