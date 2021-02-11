@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.garden = @garden
+    @booking.guest = current_user
 
     if @booking.save
       redirect_to garden_path(@garden) #CHANGE
@@ -32,7 +33,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to gardens_path #TODO
+    redirect_to garden_path(@booking.garden) #TODO
   end
 
   private
