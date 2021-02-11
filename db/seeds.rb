@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts 'Cleaning gardens...'
 Booking.delete_all
 Garden.delete_all
@@ -12,7 +14,7 @@ mary = User.create(
 
 puts 'Creating gardens...'
 
-Garden.create(
+garden_one = Garden.create(
   title: 'Country retreat with a golf course in the garden',
   description: 'This sprawling country estate is so vast that it has a private
                 nine-hole golf course in the back garden – and the fairways are
@@ -22,7 +24,7 @@ Garden.create(
   owner: mary,
 )
 
-Garden.create(
+garden_two = Garden.create(
   title: 'Discover the Devon farmhouse with an aircraft runway',
   description: 'This stunning country pile offers the perfect antidote to tiresome
                 airport queues as prospective jet-setting buyers can fly direct
@@ -34,7 +36,7 @@ Garden.create(
   owner: mary,
 )
 
-Garden.create(
+garden_three = Garden.create(
   title: 'The Garden Of Eden',
   description: 'This Gloucester property has undoubtedly one of the most stunning
                 gardens we’ve ever seen – boasting a striking Far Eastern theme and
@@ -45,6 +47,10 @@ Garden.create(
   address: 'Gloucester, UK',
   owner: mary,
 )
+
+garden_one.photo.attach(io: URI.open('app/assets/images/garden_one.jpg'), filename: 'garden_one.jpg', content_type: 'image/jpg')
+garden_two.photo.attach(io: URI.open('app/assets/images/garden_two.jpg'), filename: 'garden_two.jpg', content_type: 'image/jpg')
+garden_three.photo.attach(io: URI.open('app/assets/images/garden_three.jpg'), filename: 'garden_three.jpg', content_type: 'image/jpg')
 
 puts 'Finished!'
 puts "Number of gardens created: #{Garden.count}"

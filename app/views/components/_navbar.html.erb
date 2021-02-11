@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://png.pngtree.com/png-vector/20190215/ourlarge/pngtree-gardening-icon-set-%7C-fence-icon-with-outline-filled-png-image_566123.jpg" %>
     <% end %>
 
@@ -25,6 +25,9 @@
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>
