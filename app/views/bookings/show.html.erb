@@ -5,11 +5,9 @@
 
   <p> <%= @booking.garden.title %></p>
 
-  <p><%= @booking.start_date_time %> til <%= @booking.end_date_time %></p>
+  <p><%= @booking.start_date_time.strftime("%A %d %B %H:%M") %> until <%= @booking.end_date_time.strftime("%A %d %B %H:%M") %></p>
 
   <p> <%= @booking.garden.address %></p>
 
   <%= link_to 'continue exploring', gardens_path %>
 </div>
-
-
