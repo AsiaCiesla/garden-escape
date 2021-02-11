@@ -34,7 +34,7 @@ class GardensController < ApplicationController
   private
 
   def garden_params #UPDATE PARAMS
-    params.require(:garden).permit(:title, :description, :price_per_hour, :address)
+    params.require(:garden).permit(:title, :description, :price_per_hour, :address, :photo)
   end
 
   def set_garden
