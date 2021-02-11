@@ -2,7 +2,8 @@
   <div class="row justify-content-center">
     <div class="col-8">
       <h2>Edit your garden listing</h2>
-      <%= render "form", garden: @garden %>  
+      <%= render "form", garden: @garden %>
+      <%= link_to "Back", garden_path(@garden) %>
     </div>
   </div>
 </div>
