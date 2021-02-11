@@ -2,6 +2,7 @@
   <div class="row justify-content-center">
     <div class="col">
 
+      <%= cl_image_tag @garden.photo.key, height: 300, width: 400, crop: :fill %>
       <h2><%= @garden.title %></h2>
       <p><%= @garden.description %></p>
       <p><%= @garden.price_per_hour %></p>
