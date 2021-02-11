@@ -1,0 +1,5 @@
+<%= simple_form_for [garden, booking] do |f| %>
+<%= f.datetime_field :start_date_time %>
+<%= f.datetime_field :end_date_time %>
+<%= f.submit class: 'btn btn-primary' %>
+<% end %>

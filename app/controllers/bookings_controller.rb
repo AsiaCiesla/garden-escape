@@ -1,7 +1,12 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update]
 
   before_action :find_garden, only: [:new, :create]
+
+  # def index
+  #   @bookings = Booking.where(guest: current_user)
+  #   @user = current_user
+  # end
 
   def show; end
 
@@ -15,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.guest = current_user
 
     if @booking.save
-      redirect_to garden_path(@garden) #CHANGE
+      redirect_to booking_path(@booking) #CHANGE
     else
       render :new
     end
@@ -32,8 +37,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to garden_path(@booking.garden) #TODO
+    redirect_to bookings_path #TODO
   end
 
   private
