@@ -44,3 +44,43 @@
   top: -20px;
   width: 40px;
 }
+
+.card-booking {
+  display: flex;
+  align-items: center;
+  background: white;
+  margin-bottom: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+  }
+
+  .card-booking-info {
+    margin-left: 8px;
+    width: 100%;
+    .card-booking-title {
+      display: flex;
+      h2 {
+        font-size: 20px;
+        flex: 1 0 auto;
+        a {
+          color: black;
+        }
+      }
+      .card-booking-confirmation {
+        margin-right: 8px;
+        p {
+          color: rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+    p {
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+  }
+}
+
+

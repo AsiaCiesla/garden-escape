@@ -1,19 +1,16 @@
-<div class="container">
+<div class="container mt-3">
+
+
   <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-8">
       <h1>BOOKED!</h1>
-
-      <h3>Enjoy your stay in</h3>
-
-      <p> <%= @booking.garden.title %></p>
-
-
-      <p><%= @booking.start_date_time.strftime("%A %d %B %H:%M") %> until <%= @booking.end_date_time.strftime("%A %d %B %H:%M") %></p>
-
-
-      <p> <%= @booking.garden.address %></p>
-
-      <%= link_to 'continue exploring', gardens_path %>
+      <h3 style="color: rgba(0, 0, 0, 0.4)">Enjoy your stay</h3>
+      <div class="my-5">
+        <%= render 'components/bookingcard', booking: @booking %>
+      </div>
+      <%= link_to 'my bookings', mybookings_bookings_path %> | <%= link_to 'continue exploring', gardens_path %>
     </div>
   </div>
+
 </div>
+

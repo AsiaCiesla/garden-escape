@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index, :show, :edit, :update, :destroy]
+  resources :bookings, only: [:show, :edit, :update, :destroy] do
+    collection do
+      get :mybookings
+    end
+  end
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
