@@ -13,12 +13,12 @@
           <div><strong>£<%= @garden.price_per_hour %>/hour</strong></div>
         </div>
 
-        <%= link_to "Book", gardens_path, class: "btn btn-flat btn-full-width" %>
-        
+        <%= link_to "Book", new_garden_booking_path(@garden), class: "btn btn-flat btn-full-width" %>
+
         <div class="photo-txt-frame-links pt-2">
           <%= link_to "Back", gardens_path %> |
           <%= link_to "Edit", edit_garden_path(@garden) %> |
-          <%= link_to "Delete listing", 
+          <%= link_to "Delete listing",
                       garden_path(@garden),
                       method: :delete,
                       data: { confirm: "Are you sure you want to delete this garden listing?" } %>
