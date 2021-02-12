@@ -3,11 +3,6 @@ class BookingsController < ApplicationController
 
   before_action :find_garden, only: [:new, :create]
 
-  # def index
-  #   @bookings = Booking.where(guest: current_user)
-  #   @user = current_user
-  # end
-
   def show; end
 
   def new
@@ -20,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.guest = current_user
 
     if @booking.save
-      redirect_to booking_path(@booking) #CHANGE
+      redirect_to booking_path(@booking)
     else
       render :new
     end
@@ -30,7 +25,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to gardens_path #TODO
+      redirect_to gardens_path
     else
       render :edit
     end
@@ -39,7 +34,13 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to bookings_path #TODO
+    redirect_to mybookings_bookings_path
+  end
+
+  def mybookings
+    now = DateTime.now
+    @upcoming = current_user.bookings.where("start_date_time > ?", now)
+    @past = current_user.bookings.where("start_date_time < ?", now)
   end
 
   private
