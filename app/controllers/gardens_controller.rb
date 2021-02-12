@@ -35,12 +35,12 @@ class GardensController < ApplicationController
 
   def destroy
     @garden.destroy
-    redirect_to garden_path
+    redirect_to gardens_path
   end
 
   private
 
-  def garden_params #UPDATE PARAMS
+  def garden_params
     params.require(:garden).permit(:title, :description, :price_per_hour, :address, :photo)
   end
 

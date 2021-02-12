@@ -1,17 +1,32 @@
-<div class="container pt-4">
-  <div class="row justify-content-center">
-    <div class="col">
+<% if @garden.photo.attached? %>
+  <div class="photo-fullscreen-bg-outer" style="background-image: url('<%= cl_image_path @garden.photo.key %>')">
+<% else %>
+  <div class="photo-fullscreen-bg-outer">
+<% end %>
+    <div class="photo-fullscreen-bg-inner">
+      <h1 class="photo-txt-left-column"><%= @garden.title %></h1>
+      <p class="photo-txt-left-column pb-4"><%= @garden.description %></p>
 
-      <%= cl_image_tag @garden.photo.key, height: 300, width: 400, crop: :fill %>
-      <h2><%= @garden.title %></h2>
-      <p><%= @garden.description %></p>
-      <p><%= @garden.price_per_hour %></p>
-      <p><%= @garden.address %></p>
+      <div class="photo-txt-frame p-4">
+        <div class="photo-txt-frame-flexbox pb-2">
+          <div><%= @garden.address %></div>
+          <div><strong>£<%= @garden.price_per_hour %>/hour</strong></div>
+        </div>
 
-      <%= link_to "back", gardens_path %> |
-      <%= link_to "edit", edit_garden_path(@garden) %> |
-      <%= link_to "delete", garden_path(@garden), method: :delete %>
+        <%= link_to "Book", gardens_path, class: "btn btn-flat btn-full-width" %>
+        
+        <div class="photo-txt-frame-links pt-2">
+          <%= link_to "Back", gardens_path %> |
+          <%= link_to "Edit", edit_garden_path(@garden) %> |
+          <%= link_to "Delete listing", 
+                      garden_path(@garden),
+                      method: :delete,
+                      data: { confirm: "Are you sure you want to delete this garden listing?" } %>
+        </div>
 
+      </div>
     </div>
-  </div>
 </div>
+
+
+
