@@ -9,7 +9,7 @@
         </div>
       <% end %>
     </div>
-    <p><%= booking.start_date_time.strftime("%A %d %B %H:%M") %> - <%= booking.end_date_time.strftime("%A %d %B %H:%M") %></p>
+    <p><%= booking.start_date_time.strftime("%a %d %b %H:%M") %> - <%= booking.end_date_time.strftime("%a %d %b %H:%M") %></p>
     <% if booking.start_date_time > DateTime.now %>
       <%= link_to 'cancel booking',
             booking_path(booking),
