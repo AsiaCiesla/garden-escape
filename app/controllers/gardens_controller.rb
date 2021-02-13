@@ -46,6 +46,10 @@ class GardensController < ApplicationController
     redirect_to gardens_path
   end
 
+  def mygardens
+    @gardens = current_user.gardens
+  end
+
   private
 
   def garden_params

@@ -17,12 +17,14 @@
 
         <div class="photo-txt-frame-links pt-2">
           <%= link_to "Back", gardens_path %>
+
           <% if user_signed_in? && @garden.user_id == current_user.id %> |
             <%= link_to "Edit", edit_garden_path(@garden) %> |
             <%= link_to "Delete listing",
                         garden_path(@garden),
                         method: :delete,
                         data: { confirm: "Are you sure you want to delete this garden listing?" } %>
+
           <% end %>
         </div>
 
