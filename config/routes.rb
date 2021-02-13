@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   resources :gardens do
     resources :bookings, only: [:new, :create]
+    collection do
+      get :mygardens
+    end
   end
 
   resources :bookings, only: [:show, :edit, :update, :destroy] do

@@ -17,7 +17,7 @@
 
         <div class="photo-txt-frame-links pt-2">
           <%= link_to "Back", gardens_path %>
-          <% if @garden.user_id == current_user.id %> |
+          <% if @garden.owner == current_user %> |
           <%= link_to "Edit", edit_garden_path(@garden) %> |
           <%= link_to "Delete listing",
                       garden_path(@garden),
