@@ -8,11 +8,10 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   padding: 16px;
   flex-grow: 1;
-  margin-right: 24px;
 }
 
 #map {
@@ -20,4 +19,13 @@
   position: sticky;
   top: 0;
   margin: 0px 40px;
+}
+
+.cards-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+  flex-grow: 1;
+  margin-right: 24px;
 }
