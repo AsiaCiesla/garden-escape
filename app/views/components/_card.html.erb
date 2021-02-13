@@ -1,6 +1,11 @@
 <% @gardens.each do |garden| %>
   <div class="card-garden">
-    <%= cl_image_tag garden.photo.key, alt: "alttext" %>
+    <% if garden.photo.attached? %>
+      <%= cl_image_tag garden.photo.key, alt: "alttext" %>
+    <% else %>
+      <%= image_tag "logo_img", class: 'image-card-placeholder' %>
+    <% end %>
+
     <div class="card-garden-infos">
       <div>
         <h2><%= link_to garden.title, garden_path(garden) %></h2>
