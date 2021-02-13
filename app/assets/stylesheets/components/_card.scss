@@ -51,10 +51,16 @@
   background: white;
   margin-bottom: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  img {
-    height: 100px;
+  // img {
+  //   height: 100px;
+  //   width: 100px;
+  //   object-fit: cover;
+  // }
+  .card-img {
     width: 100px;
-    object-fit: cover;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
   }
 
   .card-booking-info {
