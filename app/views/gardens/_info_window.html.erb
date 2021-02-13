@@ -1,6 +1,6 @@
-
-  <%#= cl_image_tag garden.photo.key, alt: "alttext", style: "width=100%" %>
-  <h2><%= garden.title %></h2>
-  <p>£<%= garden.price_per_hour %></p>
-
-
+<%= link_to garden_path(garden) do %>
+  <%= cl_image_tag garden.photo.key, alt: "alttext" %>
+<% end %>
+<h2><%= link_to garden.title, garden_path(garden) %></h2>
+<h3><%= garden.address %></h3>
+<p>£<%= garden.price_per_hour %></p>
