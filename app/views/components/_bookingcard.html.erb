@@ -1,5 +1,8 @@
 <div class="card-booking">
-  <%= cl_image_tag booking.garden.photo.key, alt: "alttext" %>
+  <div class="card-img" style="background-image: url('<%= cl_image_path booking.garden.photo.key, alt: "alttext" %>')">
+
+  </div>
+
   <div class="card-booking-info">
     <div class="card-booking-title">
       <h2><%= link_to "#{booking.garden.title}", garden_path(booking.garden) %></h2>
