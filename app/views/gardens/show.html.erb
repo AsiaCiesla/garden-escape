@@ -13,7 +13,9 @@
           <div><strong>£<%= @garden.price_per_hour %>/hour</strong></div>
         </div>
 
-        <%= link_to "Book", new_garden_booking_path(@garden), class: "btn btn-flat btn-full-width" %>
+        <% if (user_signed_in? && @garden.user_id != current_user.id) || !user_signed_in? %>
+          <%= link_to "Book", new_garden_booking_path(@garden), class: "btn btn-flat btn-full-width" %>
+        <% end %>
 
         <div class="photo-txt-frame-links pt-2">
           <%= link_to "Back", gardens_path %>
