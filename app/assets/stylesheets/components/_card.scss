@@ -3,6 +3,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 300px;
+  border-radius: 14px;
 }
 
 .card-garden > a > img {
@@ -21,17 +22,19 @@
   font-size: 14px;
   font-weight: bold;
   margin: 0;
+  padding-top: 3px;
 }
 
 .card-garden p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  padding-top: 3px;
 }
 
 
 .card-garden .card-garden-infos {
-  padding: 16px;
+  padding: 14px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
