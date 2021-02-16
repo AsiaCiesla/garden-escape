@@ -11,16 +11,18 @@
       </div>
     </div>
   </div>
-  <h3>Past bookings</h3>
-  <div class="my-5">
-    <div class="row justify-content-center">
-      <div class="col-8">
-        <% @past.each do |booking| %>
-          <%= render 'components/bookingcard', booking: booking %>
-        <% end %>
+  <% if @past.count > 0 %>
+    <h3>Past bookings</h3>
+    <div class="my-5">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <% @past.each do |booking| %>
+            <%= render 'components/bookingcard', booking: booking %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 

@@ -9,5 +9,17 @@
     </div>
   </div>
 
+  <h3><%= @bookings.count %> user<%= @bookings.count == 1 ? ' has' : 's have'%> booked one of your listings:</h3>
+
+  <div class="my-5">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <% @bookings.each do |booking| %>
+          <%= render 'components/bookingcard', booking: booking %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 
 </div>

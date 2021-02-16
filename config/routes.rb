@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     collection do
       get :mybookings
     end
+    member do
+      get :confirm
+    end
   end
 
 
