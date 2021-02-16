@@ -1,0 +1,14 @@
+
+  <%= form_tag gardens_path, method: :get, class: "form-inline" do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search-input",
+      placeholder: "Search address, garden name..."
+      %>
+      <%= submit_tag "Search", class: "btn btn-flat btn-sm" , id: "search-btn" %>
+  <% end %>
+
+
+
+
+

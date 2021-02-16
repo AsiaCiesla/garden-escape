@@ -4,7 +4,11 @@ class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gardens = Garden.all
+    if params[:query].present?
+      @gardens = Garden.search_by_title_and_address(params[:query])
+    else
+      @gardens = Garden.all
+    end
 
     @markers = @gardens.geocoded.map do |garden|
       {
