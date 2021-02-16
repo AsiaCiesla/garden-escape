@@ -1,9 +1,11 @@
 <div class="card-booking">
+
   <div class="card-img" style="background-image: url('<%= cl_image_path booking.garden.photo.key, alt: "alttext" %>')">
 
   </div>
 
   <div class="card-booking-info">
+
     <div class="card-booking-title">
       <h2><%= link_to "#{booking.garden.title}", garden_path(booking.garden) %></h2>
       <% if booking.start_date_time > DateTime.now %>
@@ -12,12 +14,26 @@
         </div>
       <% end %>
     </div>
-    <p><%= booking.start_date_time.strftime("%a %d %b %H:%M") %> - <%= booking.end_date_time.strftime("%a %d %b %H:%M") %></p>
+
+    <p>
+      <%= booking.start_date_time.strftime("%a %d %b %H:%M") %> -
+      <%= booking.end_date_time.strftime("%a %d %b %H:%M") %> |
+      <% if booking.guest == current_user %>
+        Owner: <%= booking.garden.owner.email %>
+      <% elsif booking.garden.owner == current_user %>
+        Guest: <%= booking.guest.email %>
+      <% end %>
+    </p>
+
+    <% if !booking.accepted && booking.garden.owner == current_user %>
+      <%= link_to 'confirm booking', confirm_booking_path(booking) %> |
+    <% end %>
     <% if booking.start_date_time > DateTime.now %>
       <%= link_to 'cancel booking',
             booking_path(booking),
             method: :delete,
             data: { confirm: "Are you sure you want to cancel this booking?" }  %>
     <% end %>
+
   </div>
 </div>

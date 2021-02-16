@@ -49,6 +49,7 @@ class GardensController < ApplicationController
 
   def mygardens
     @gardens = current_user.gardens
+    @bookings = Booking.upcoming.joins(garden: :owner).where(gardens: { owner: current_user })
   end
 
   private
