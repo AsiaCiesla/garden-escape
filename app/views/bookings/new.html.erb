@@ -1,8 +1,17 @@
 <div class="container pt-4">
   <div class="row justify-content-center">
     <div class="col-8">
-      <h2>Book <%= @garden.title %></h2>
-      <%= render "form", garden: @garden, booking: @booking %>
+      <% if @garden.owner == current_user %>
+        <h2>You are the owner of this garden!</h2>
+        <p>Click
+          <%= link_to 'here', mygardens_gardens_path %>
+          to see whether you have received any new bookings.
+        </p>
+      <% else %>
+        <h2>Book <%= @garden.title %></h2>
+        <%= render "form", garden: @garden, booking: @booking %>
+      <% end %>
+
     </div>
   </div>
 </div>
