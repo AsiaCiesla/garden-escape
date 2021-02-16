@@ -4,6 +4,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 300px;
   border-radius: 14px;
+  padding-bottom: 6px;
 }
 
 .card-garden > a > img {
@@ -32,9 +33,17 @@
   padding-top: 3px;
 }
 
+.card-garden-infos .card-garden-pricing h4 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  position: absolute;
+  right: 10px;
+}
+
 
 .card-garden .card-garden-infos {
-  padding: 14px;
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
