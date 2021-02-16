@@ -9,6 +9,8 @@
         </p>
       <% else %>
         <h2>Book <%= @garden.title %></h2>
+        <p>Total price: <strong>£<span id="price">0</span></strong> (<span id="hours">0</span> hours, 
+           £<%= @garden.price_per_hour %> per hour)</p>
         <%= render "form", garden: @garden, booking: @booking %>
       <% end %>
 
@@ -16,4 +18,30 @@
   </div>
 </div>
 
+<% garden_price = @garden.price_per_hour %>
 
+<%= javascript_tag do %>
+
+  const el_price = document.getElementById("price");
+  const el_hours = document.getElementById("hours");
+
+  const el_start = [];
+  const el_end = [];
+
+  for (let i=0; i<5; i++) {
+    el_start[i] = document.getElementById(`booking_start_date_time_${i+1}i`);
+    el_end[i] = document.getElementById(`booking_end_date_time_${i+1}i`);
+
+    el_start[i].onchange = () => { update_price(); };
+    el_end[i].onchange = () => { update_price(); };
+  }
+
+  const update_price = () => {
+    const from = `${el_start[1].value} ${el_start[2].value}, ${el_start[0].value}, ${el_start[3].value}:${el_start[4].value}`;
+    const to = `${el_end[1].value} ${el_end[2].value}, ${el_end[0].value}, ${el_end[3].value}:${el_end[4].value}`;
+    const total_hours = Math.ceil((Date.parse(to) - Date.parse(from)) / 3600000);
+    el_price.innerText = total_hours * <%= garden_price %>;
+    el_hours.innerText = total_hours;
+  }
+
+<% end %>
