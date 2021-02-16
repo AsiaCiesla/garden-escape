@@ -3,6 +3,10 @@
     <%= image_tag "garden_logo.png" %>
   <% end %>
 
+  <% if current_page?(gardens_path) %>
+    <%= render 'components/search' %>
+  <% end %>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
