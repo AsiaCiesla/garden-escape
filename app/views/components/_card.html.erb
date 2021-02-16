@@ -14,10 +14,17 @@
         <h3><%= garden.address %></h3>
         <p><%= garden.description %></p>
       </div>
+
       <div class="card-garden-pricing">
         <h4>£<%= garden.price_per_hour %></h4>
       </div>
-      <%= image_tag "mary.jpg", alt: "alttext", class: "card-garden-user avatar-bordered" %>
+      
+      <% if garden.owner.avatar.attached? %>
+        <%= cl_image_tag garden.owner.avatar.key, transformation: {width: 40, height: 40, gravity: "face", radius: "max", crop: "thumb" }, class: "card-garden-user avatar-bordered", alt: "alttext" %>
+      <% else %>
+        <%= image_tag "mary.jpg", alt: "alttext", class: "card-garden-user avatar-bordered" %>
+      <% end %>
+
     </div>
 
   </div>

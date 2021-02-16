@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :gardens, dependent: :destroy, inverse_of: 'owner'
   has_many :bookings, dependent: :destroy, inverse_of: 'guest'
+
+  has_one_attached :avatar
 end
