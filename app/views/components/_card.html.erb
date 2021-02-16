@@ -14,8 +14,11 @@
         <h3><%= garden.address %></h3>
         <p><%= garden.description %></p>
       </div>
-      <h2 class="card-garden-pricing">£<%= garden.price_per_hour %></h2>
+      <div class="card-garden-pricing">
+        <h4>£<%= garden.price_per_hour %></h4>
+      </div>
       <%= image_tag "mary.jpg", alt: "alttext", class: "card-garden-user avatar-bordered" %>
     </div>
+
   </div>
 <% end %>
