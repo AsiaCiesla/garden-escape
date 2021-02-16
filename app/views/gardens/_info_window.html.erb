@@ -1,5 +1,11 @@
 <%= link_to garden_path(garden) do %>
+
+<% if garden.photo.attached? %>
   <%= cl_image_tag garden.photo.key, alt: "alttext" %>
+<% else %>
+  <%= image_tag "logo_img", class: 'image-card-placeholder' %>
+<% end %>
+
 <% end %>
 <h2><%= link_to garden.title, garden_path(garden) %></h2>
 <h3><%= garden.address %></h3>
