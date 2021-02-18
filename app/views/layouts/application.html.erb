@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>Garden Escapes</title>
     <%= csrf_meta_tags %>
@@ -11,11 +11,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
-    <%= render "components/navbar" %>
-    <%= render "components/flashes" %>
-
-    <%= yield %>
-    <%= render "components/footer" %>
+  <body class="h-100">
+    <app-root class="d-flex flex-column h-100">
+      <%= render "components/navbar" %>
+      <%= render "components/flashes" %>
+      <%= yield %>
+      <%= render "components/footer" %>
+    </app-root>
   </body>
 </html>
