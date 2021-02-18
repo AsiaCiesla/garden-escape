@@ -20,7 +20,15 @@ class GardensController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @marker =
+      [{
+        lat: @garden.latitude,
+        lng: @garden.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { garden: @garden }),
+        image_url: helpers.asset_url('barrow.png')
+      }]
+  end
 
   def new
     @garden = Garden.new

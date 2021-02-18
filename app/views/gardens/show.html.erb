@@ -8,6 +8,11 @@
       <p class="photo-txt-left-column pb-4"><%= @garden.description %></p>
 
       <div class="photo-txt-frame p-4">
+        <div id="map" class="photo-map"
+          style="width: 350px; height: 200px; margin: 0px 0px 20px 0px;"
+          data-markers="<%= @marker.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
         <div class="photo-txt-frame-flexbox pb-2">
           <div><%= @garden.address %></div>
           <div><strong>£<%= @garden.price_per_hour %>/hour</strong></div>
