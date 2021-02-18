@@ -1,0 +1,15 @@
+<div class="container pt-4">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h2>Review your visit to <%= @booking.garden.title %></h2>
+      <div class="mt-5">
+        <%= simple_form_for [@booking, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating, collection: 0..5 %>
+          <%= f.submit class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
