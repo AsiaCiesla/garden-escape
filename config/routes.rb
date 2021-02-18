@@ -10,15 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bookings, only: [:show, :edit, :update, :destroy] do
+  resources :bookings, only: [:show, :update, :destroy] do
     collection do
       get :mybookings
     end
-    member do
-      get :confirm
-    end
   end
-
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy, :confirm]
+  before_action :set_booking, only: [:show, :update, :destroy]
 
   before_action :find_garden, only: [:new, :create]
 
@@ -21,14 +21,11 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit; end
-
   def update
-    if @booking.update(booking_params)
-      redirect_to gardens_path
-    else
-      render :edit
-    end
+    @booking.accepted = true
+    @booking.save
+
+    redirect_to mygardens_gardens_path
   end
 
   def destroy
@@ -39,13 +36,6 @@ class BookingsController < ApplicationController
   def mybookings
     @upcoming = current_user.bookings.upcoming
     @past = current_user.bookings.past
-  end
-
-  def confirm
-    @booking.accepted = true
-    @booking.save
-
-    redirect_to mygardens_gardens_path
   end
 
   private
