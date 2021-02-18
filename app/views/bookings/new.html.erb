@@ -1,3 +1,5 @@
+<div class="jumbotron jumbotron-booking" style="background-image:url('<%= cl_image_path @garden.photo.key %>')"></div>
+
 <div class="container pt-4">
   <div class="row justify-content-center">
     <div class="col-8">
@@ -12,6 +14,9 @@
         <p>Total price: <strong>£<span id="price">0</span></strong> (<span id="hours">0</span> hours, 
            £<%= @garden.price_per_hour %> per hour)</p>
         <%= render "form", garden: @garden, booking: @booking %>
+        <div class="pt-3">
+          <%= link_to "Cancel", garden_path(@garden) %>
+        </div>
       <% end %>
 
     </div>
