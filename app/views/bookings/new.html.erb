@@ -40,8 +40,13 @@
     const from = `${el_start[1].value} ${el_start[2].value}, ${el_start[0].value}, ${el_start[3].value}:${el_start[4].value}`;
     const to = `${el_end[1].value} ${el_end[2].value}, ${el_end[0].value}, ${el_end[3].value}:${el_end[4].value}`;
     const total_hours = Math.ceil((Date.parse(to) - Date.parse(from)) / 3600000);
-    el_price.innerText = total_hours * <%= garden_price %>;
-    el_hours.innerText = total_hours;
+    if (total_hours > 0) {
+      el_price.innerText = total_hours * <%= garden_price %>;
+      el_hours.innerText = total_hours;
+    } else {
+      el_price.innerText = 0;
+      el_hours.innerText = 0;
+    }
   }
 
 <% end %>
