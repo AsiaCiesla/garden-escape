@@ -26,7 +26,7 @@
     </p>
 
     <% if !booking.accepted && booking.garden.owner == current_user %>
-      <%= link_to 'confirm booking', confirm_booking_path(booking) %> |
+      <%= link_to 'confirm booking', booking_path(booking), method: :patch %> |
     <% end %>
     <% if booking.start_date_time > DateTime.now %>
       <%= link_to 'cancel booking',
