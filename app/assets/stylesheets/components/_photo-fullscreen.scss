@@ -45,5 +45,9 @@
 .photo-txt-frame-flexbox {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; 
+  align-items: flex-start;
+}
+
+.photo-map {
+  border-radius: 4px;
 }
