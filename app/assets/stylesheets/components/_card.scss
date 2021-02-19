@@ -4,7 +4,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 300px;
   height: 300px;
-  border-radius: 14px;
+  border-radius: 12px;
   padding-bottom: 6px;
 }
 
@@ -15,14 +15,15 @@
 }
 
 .card-garden h2 {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-garden h3 {
   font-size: 14px;
-  font-weight: bold;
+  font-weight: lighter;
+  color: gray;
   margin: 0;
   padding-top: 3px;
 }
@@ -35,19 +36,20 @@
 }
 
 .card-garden-infos .card-garden-pricing h4 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   margin: 0;
   position: absolute;
-  right: 10px;
+  right: 16px;
+  bottom: 16px;
 }
 
 
 .card-garden .card-garden-infos {
   padding: 16px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   position: relative;
 }
 
@@ -59,17 +61,15 @@
 }
 
 .card-booking {
+  border-radius: 14px;
   display: flex;
   align-items: center;
   background: white;
   margin-bottom: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  // img {
-  //   height: 100px;
-  //   width: 100px;
-  //   object-fit: cover;
-  // }
+
   .card-img {
+    border-radius: 12px 0px 0px 12px;
     width: 100px;
     height: 100px;
     background-size: cover;
@@ -77,32 +77,46 @@
   }
 
   .card-booking-info {
-    margin-left: 8px;
+    margin-left: 10px;
     width: 100%;
     .card-booking-title {
       display: flex;
       h2 {
-        font-size: 20px;
+        font-size: 17px;
+        font-weight: bold;
         flex: 1 0 auto;
+        margin-bottom: 4px;
         a {
           color: black;
+          font-size: 16px;
         }
       }
       .card-booking-confirmation {
-        margin-right: 8px;
+        margin-right: 10px;
         p {
           color: rgba(0, 0, 0, 0.4);
+          font-size: 12px;
+          margin-bottom: 0;
         }
       }
     }
-    p {
-      font-size: 12px;
-      margin-bottom: 4px;
+    h3 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: gray;
+      font-weight: lighter;
     }
     a {
-      color: $blue;
+      color: $dark-green;
+      font-size: 14px;
     }
   }
+}
+
+.card-rating {
+  font-size: 12px;
+  margin-bottom: 0;
+  color: gray;
 }
 
 .image-card-placeholder {
