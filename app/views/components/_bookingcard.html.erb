@@ -12,11 +12,10 @@
         <div class="card-booking-confirmation">
           <p><em><%= booking.accepted ? 'confirmed' : 'pending confirmation' %></em></p>
         </div>
-
       <% end %>
     </div>
 
-    <p>
+    <h3>
       <%= booking.start_date_time.strftime("%a %d %b %H:%M") %> -
       <%= booking.end_date_time.strftime("%a %d %b %H:%M") %> |
       <% if booking.guest == current_user %>
@@ -24,7 +23,7 @@
       <% elsif booking.garden.owner == current_user %>
         Guest: <%= booking.guest.email %>
       <% end %>
-    </p>
+    </h3>
 
     <% if !booking.accepted && booking.garden.owner == current_user %>
       <%= link_to 'confirm booking', booking_path(booking), method: :patch %> |
@@ -35,9 +34,9 @@
             method: :delete,
             data: { confirm: "Are you sure you want to cancel this booking?" }  %>
     <% elsif booking.guest == current_user && !booking.review %>
-        <%= link_to 'review your visit', new_booking_review_path(booking), class: 'review-link' %>
+        <%= link_to 'review your visit', new_booking_review_path(booking) %>
     <% elsif booking.review %>
-        <p>Your rating: <%= '⭐️' * booking.review.rating %></p>
+        <p class="card-rating"><%= '⭐️' * booking.review.rating %></p>
     <% end %>
   </div>
 </div>
