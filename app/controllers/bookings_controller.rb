@@ -3,6 +3,11 @@ class BookingsController < ApplicationController
 
   before_action :find_garden, only: [:new, :create]
 
+  def index
+    @upcoming = current_user.bookings.upcoming
+    @past = current_user.bookings.past
+  end
+
   def show; end
 
   def new
@@ -30,15 +35,10 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     if current_user == @booking.guest
-      redirect_to mybookings_bookings_path, notice: "Booking successfully cancelled."
+      redirect_to bookings_path, notice: "Booking successfully cancelled."
     else
       redirect_to mygardens_gardens_path(anchor: "my-listing-bookings"), notice: "Booking successfully cancelled."
     end
-  end
-
-  def mybookings
-    @upcoming = current_user.bookings.upcoming
-    @past = current_user.bookings.past
   end
 
   private

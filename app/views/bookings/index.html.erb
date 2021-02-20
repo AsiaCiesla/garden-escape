@@ -1,7 +1,26 @@
-<!-- <h1>Bookings for <%= @user.email %></h1>
+<div class="container mt-3">
+  <h1>My Bookings</h1>
+  <h3>You have <%= @upcoming.count %> upcoming booking<%=@upcoming.count == 1 ? '' : 's'%><%= @upcoming.count > 0 ? ':' : '' %></h3>
 
-<#% @bookings.each do |booking| %>
-  <h2><%= booking.garden.title %></h2>
-  <p><%= booking.start_date_time %> til <%= booking.end_date_time %></p>
-  <%#= link_to 'cancel booking', booking_path(booking), method: :delete %>
-<#% end %> -->
+  <div class="my-5">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <% @upcoming.each do |booking| %>
+          <%= render 'components/bookingcard', booking: booking %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% if @past.count > 0 %>
+    <h3>Past bookings</h3>
+    <div class="my-5">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <% @past.each do |booking| %>
+            <%= render 'components/bookingcard', booking: booking %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
