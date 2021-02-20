@@ -24,8 +24,7 @@ class BookingsController < ApplicationController
   def update
     @booking.accepted = true
     @booking.save
-
-    redirect_to mygardens_gardens_path
+    redirect_to mygardens_gardens_path(anchor: "booking-#{@booking.id}")
   end
 
   def destroy

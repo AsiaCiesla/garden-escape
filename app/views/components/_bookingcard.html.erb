@@ -1,4 +1,4 @@
-<div class="card-booking">
+<div class="card-booking" id="booking-<%= booking.id %>">
 
   <div class="card-img" style="background-image: url('<%= cl_image_path booking.garden.photo.key, alt: "alttext" %>')">
 
@@ -26,13 +26,13 @@
     </h3>
 
     <% if !booking.accepted && booking.garden.owner == current_user %>
-      <%= link_to 'confirm booking', booking_path(booking), method: :patch %> |
+      <%= link_to 'confirm booking', booking_path(booking), method: :patch, remote: true %> |
     <% end %>
     <% if booking.start_date_time > DateTime.now %>
       <%= link_to 'cancel booking',
             booking_path(booking),
             method: :delete,
-            data: { confirm: "Are you sure you want to cancel this booking?" }  %>
+            data: { confirm: "Are you sure you want to cancel this booking?" } %>
     <% elsif booking.guest == current_user && !booking.review %>
         <%= link_to 'review your visit', new_booking_review_path(booking) %>
     <% elsif booking.review %>
