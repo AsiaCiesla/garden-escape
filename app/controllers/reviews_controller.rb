@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = @booking
     if @review.save
-      redirect_to mybookings_bookings_path
+      redirect_to garden_path(@booking.garden, anchor: "garden-reviews")
     else
       render :new
     end
