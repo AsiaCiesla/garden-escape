@@ -62,6 +62,11 @@ class GardensController < ApplicationController
   def mygardens
     @gardens = current_user.gardens
     @bookings = Booking.upcoming.joins(garden: :owner).where(gardens: { owner: current_user })
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { bookings: @bookings.where(accepted: false) } }
+    end
   end
 
   private

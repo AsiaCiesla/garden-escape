@@ -10,3 +10,26 @@
 .navbar-lewagon .navbar-brand img {
   width: 150px;
 }
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 6px;
+  border-radius: 50%;
+  background: $blue;
+  color: white;
+  z-index: 1;
+}
+
+.badge-dropdown {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  height:10px;
+  width:10px;
+  border-radius: 50%;
+  background: $blue;
+  color: transparent;
+  z-index: 1;
+}
