@@ -40,4 +40,16 @@
   color: white;
 }
 
+.btn-list {
+  background: $blue;
+  padding: 8px 24px;
+  border-radius: 6px;
+  color: white;
+  transition: 0.3s ease;
+  &:hover {
+    opacity: 0.6;
+    text-decoration: none;
+    color: white;
+  }
+}
 
