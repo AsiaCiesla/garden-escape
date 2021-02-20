@@ -29,7 +29,11 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to mybookings_bookings_path
+    if current_user == @booking.guest
+      redirect_to mybookings_bookings_path, notice: "Booking successfully cancelled."
+    else
+      redirect_to mygardens_gardens_path(anchor: "my-listing-bookings"), notice: "Booking successfully cancelled."
+    end
   end
 
   def mybookings
