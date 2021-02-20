@@ -25,7 +25,8 @@
 
 .mapboxgl-popup-content h3 {
   font-size: 14px;
-  font-weight: bold;
+  font-weight: lighter;
+  color: gray;
   margin: 0;
   padding-top: 3px;
 }
@@ -34,6 +35,5 @@
   font-size: 14px;
   font-weight: bold;
   margin: 0;
-  padding-top: 3px;
   text-align: right;
 }
