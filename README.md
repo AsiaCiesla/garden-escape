@@ -1,7 +1,7 @@
 # Garden Escape
 Host and rent a garden for any event
 
-## View deloyed application
+## View deployed application
 http://garden-escape.herokuapp.com/
 
 ## Download and run the code locally
